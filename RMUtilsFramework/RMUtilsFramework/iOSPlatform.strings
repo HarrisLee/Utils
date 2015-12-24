@@ -1,0 +1,60 @@
+/* 
+  iOSPlatform.strings
+  RMUtilsFramework
+
+  Created by JianRongCao on 15/12/15.
+  Copyright © 2015年 JianRongCao. All rights reserved.
+*/
++ (NSDictionary *)platformVersion
+{
+    NSDictionary *platform = [NSDictionary dictionaryWithObjectsAndKeys:@"iPhone Simulator",@"iPhone Simulator",
+    @"iPhone Simulator",@"x86_64",
+    @"iPhone 4",@"iPhone3,1",
+    @"iPhone 4",@"iPhone3,2",
+    @"iPhone 4",@"iPhone3,3",
+    @"iPhone 4s",@"iPhone4,1",
+    @"iPhone 5",@"iPhone5,1",
+    @"iPhone 5",@"iPhone5,2",
+    @"iPhone 5C",@"iPhone5,3",
+    @"iPhone 5C",@"iPhone5,4",
+    @"iPhone 5S",@"iPhone6,1",
+    @"iPhone 5S",@"iPhone6,2",
+    @"iPhone 6 Plus",@"iPhone7,1",
+    @"iPhone 6",@"iPhone7,2",
+    @"iPhone 6S",@"iPhone8,1",
+    @"iPhone 6S Plus",@"iPhone8,2",
+    
+    @"iPod Touch 5",@"iPod5,1",
+    @"iPod touch 6G",@"iPod7,1",
+    
+    @"iPad 2",@"iPad2,1",
+    @"iPad 2",@"iPad2,2",
+    @"iPad 2",@"iPad2,3",
+    @"iPad 2",@"iPad2,4",
+    @"iPad 3",@"iPad3,1",
+    @"iPad 3",@"iPad3,2",
+    @"iPad 3",@"iPad3,3",
+    @"iPad 4",@"iPad3,4",
+    @"iPad 4",@"iPad3,5",
+    @"iPad 4",@"iPad3,6",
+    @"iPad Air",@"iPad4,1",
+    @"iPad Air",@"iPad4,2",
+    @"iPad Air",@"iPad4,3",
+    @"iPad Air 2",@"iPad5,3",
+    @"iPad Air 2",@"iPad5,4",
+    @"iPad Pro",@"iPad6,7",
+    @"iPad Pro",@"iPad6,8",
+    
+    @"iPad mini",@"iPad2,5",
+    @"iPad mini",@"iPad2,6",
+    @"iPad mini",@"iPad2,7",
+    @"iPad mini 2",@"iPad4,4",
+    @"iPad mini 2",@"iPad4,5",
+    @"iPad mini 2",@"iPad4,6",
+    @"iPad mini 3",@"iPad4,7",
+    @"iPad mini 3",@"iPad4,8",
+    @"iPad mini 3",@"iPad4,9",
+    @"iPad mini 4",@"iPad5,1",
+    @"iPad mini 4",@"iPad5,2", nil];
+    return platform;
+}

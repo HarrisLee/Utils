@@ -79,6 +79,6 @@
 
 
 /*! 优先使用ContentOfFile的方式加载图片*/
-+ (UIImage *)loadImageByName:(NSString *)imageName;
++ (UIImage *)imageNameWithString:(NSString *)imageName;
 
 @end

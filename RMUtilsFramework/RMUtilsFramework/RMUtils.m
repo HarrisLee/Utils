@@ -318,7 +318,7 @@
 }
 
 #pragma mark 对于不需要频繁使用的图片，使用ContentOfFile的方式加载
-+ (UIImage *)loadImageByName:(NSString *)imageName
++ (UIImage *)imageNameWithString:(NSString *)imageName
 {
     if (nil == imageName || YES == [imageName isEqualToString:@""])
         return nil;

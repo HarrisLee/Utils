@@ -235,20 +235,22 @@
 
 + (NSArray *)getPropertyList:(Class)obj withSuper:(BOOL)getSuper
 {
-    NSMutableArray *properties = [[NSMutableArray alloc] init];
-    unsigned int outCount, i;
-    objc_property_t *propertyList = class_copyPropertyList(obj, &outCount);
-    for (i = 0; i < outCount; i++) {
-        objc_property_t property = propertyList[i];
-        NSString *propName = [NSString stringWithUTF8String:property_getName(property)];
-        [properties addObject:propName];
-    }
-    
-    Class superClass = [obj superclass];
-    if (getSuper && ![[superClass description] isEqualToString:@"NSObject"]) {
-        [properties addObjectsFromArray:[self getPropertyList:superClass withSuper:getSuper]];
-    }
-    return properties;
+    NSMutableArray *propertiesArray = [[NSMutableArray alloc] init];
+    id peopleClass = obj;
+    do {
+        unsigned int outCount;
+        //获取指向当前类的所有属性
+        objc_property_t *properties = class_copyPropertyList(peopleClass, &outCount);
+        for (int idx = 0; idx < outCount; idx++) {
+            objc_property_t property = properties[idx];
+            //获取当前属性的NSString名称
+            NSString *propName = [NSString stringWithUTF8String:property_getName(property)];
+            [propertiesArray addObject:propName];
+        }
+        peopleClass = [peopleClass superclass];
+        
+    } while (![[obj description] isEqualToString:@"NSObject"] && getSuper);
+    return propertiesArray;
 }
 
 #pragma mark 获取App内部文件路径

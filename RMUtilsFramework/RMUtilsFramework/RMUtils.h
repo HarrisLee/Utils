@@ -52,7 +52,7 @@
 /*! 将JSON字符串序列化成对象*/
 + (id)serializationString:(NSString *)jsonString;
 
-/*! 将NSDictionary对象转换成成*/
+/*! 将NSDictionary对象转换成NSString*/
 + (NSString *)serializationObject:(id)object;
 
 /*! 获取Model的属性数组(getSuper   YES:获取父类属性  NO:不获取父类属性)*/

@@ -289,7 +289,7 @@
 #pragma mark 获取缓存路径文件路径
 + (NSString *)cacheFilePath:(NSString *)cacheName
 {
-    if ([RMUtils isValidString:cacheName]) {
+    if (![RMUtils isValidString:cacheName]) {
         return nil;
     }
     if (cacheName.length == 0) {
@@ -329,6 +329,6 @@
     if (nil == image)
         image = [UIImage imageNamed:imageName];
     return image;
-}
+} 
 
 @end

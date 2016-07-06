@@ -37,7 +37,7 @@
 
 + (BOOL)isValidateNumberSymbol:(NSString *)string length:(NSInteger)length
 {
-    NSString *emailRegex = [NSString stringWithFormat:@"[a-zA-Z0-9]{%ld}",length];
+    NSString *emailRegex = [NSString stringWithFormat:@"[a-zA-Z0-9]{%ld}",(long)length];
     
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
     
@@ -330,5 +330,11 @@
         image = [UIImage imageNamed:imageName];
     return image;
 } 
+
+NSString* ClassName(Class cls)
+{
+    NSString *name = NSStringFromClass(cls);
+    return name;
+}
 
 @end

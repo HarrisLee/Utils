@@ -77,8 +77,9 @@
 /*! App Libiries/Caches下某个文件夹的位置*/
 + (NSString *)cacheDirectionPath:(NSString *)direction;
 
-
 /*! 优先使用ContentOfFile的方式加载图片*/
 + (UIImage *)imageNameWithString:(NSString *)imageName;
+
+NSString* ClassName(Class cls);
 
 @end

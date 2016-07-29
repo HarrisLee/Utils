@@ -37,7 +37,7 @@
 
 + (BOOL)isValidateNumberSymbol:(NSString *)string length:(NSInteger)length
 {
-    NSString *emailRegex = [NSString stringWithFormat:@"[a-zA-Z0-9]{%ld}",(long)length];
+    NSString *emailRegex = [NSString stringWithFormat:@"[a-zA-Z0-9]{%ld}",(long)(length)];
     
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES%@",emailRegex];
     
@@ -65,7 +65,6 @@
     //获取当前时间
     NSDate *date = [NSDate date];
     double intervalTime = [date timeIntervalSince1970] - [msgCreateTime doubleValue] ;
-    
     long lTime = (long)intervalTime;
     
     long iDays = 60*60*24;
@@ -77,52 +76,42 @@
     NSDate *d = [NSDate dateWithTimeIntervalSince1970:[msgCreateTime doubleValue]];
     NSString *showtimeNew;
     
-    if ((0 < lTime) && ( lTime < iDays))
-    {
+    if ((0 < lTime) && ( lTime < iDays)) {
         [formatter1 setDateFormat:@"yyyy-MM-dd"];
         showtimeNew = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:d]];
         NSString * nowDate = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:date]];
-        if ([showtimeNew isEqualToString:nowDate])
-        {
+        if ([showtimeNew isEqualToString:nowDate]) {
             [formatter1 setDateFormat:@"HH:mm"];
             showtimeNew = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:d]];
         }
-        else
-        {
+        else {
             [formatter1 setDateFormat:@"HH:mm"];
             showtimeNew = [NSString stringWithFormat:@"%@ %@",@"昨天",[formatter1 stringFromDate:d]];
         }
     }
-    
-    else if ((lTime > iDays) && (lTime < iTwoDay))
-    {
+    else if ((lTime > iDays) && (lTime < iTwoDay)) {
         [formatter1 setDateFormat:@"yyyy-MM-dd"];
         NSDate * yestoday =   [NSDate dateWithTimeIntervalSinceNow:-iDays];
         showtimeNew = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:d]];
         NSString * nowDate = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:yestoday]];
-        if ([showtimeNew isEqualToString:nowDate])
-        {
+        if ([showtimeNew isEqualToString:nowDate]) {
             [formatter1 setDateFormat:@"HH:mm"];
             showtimeNew = [NSString stringWithFormat:@"%@ %@",@"昨天",[formatter1 stringFromDate:d]];
         }
-        else
-        {
+        else {
             [formatter1 setDateFormat:@"MM-dd"];
             showtimeNew = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:d]];
         }
     }
-    else if ((lTime > iTwoDay) && (lTime < iYears))
-    {
+    else if ((lTime > iTwoDay) && (lTime < iYears)) {
         [formatter1 setDateFormat:@"MM-dd"];
         showtimeNew = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:d]];
     }
-    else if (lTime < 0)
-    {
+    else if (lTime < 0) {
         [formatter1 setDateFormat:@"yyyy-MM-dd HH:mm"];
         showtimeNew = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:d]];
     }
-    else if (lTime > iYears)
-    {
+    else if (lTime > iYears) {
         [formatter1 setDateFormat:@"yyyy-MM-dd"];
         showtimeNew = [NSString stringWithFormat:@"%@",[formatter1 stringFromDate:d]];
     }
@@ -172,7 +161,6 @@
     CTTelephonyNetworkInfo *info = [[CTTelephonyNetworkInfo alloc] init];
     CTCarrier *carrier = [info subscriberCellularProvider];
     if (carrier == nil) {
-
         return nil;
     }
     
@@ -183,14 +171,16 @@
     }
     if ([code isEqualToString:@"00"] || [code isEqualToString:@"02"] || [code isEqualToString:@"07"]) {
         return @"中国移动";
-    }else if ([code isEqualToString:@"01"]){
+    }
+    else if ([code isEqualToString:@"01"]){
         return @"中国联通";
-    }else if([code isEqualToString:@"20"]) {
+    }
+    else if([code isEqualToString:@"20"]) {
         return @"中国铁通";
-    }else if([code isEqualToString:@"03"]) {
+    }
+    else if([code isEqualToString:@"03"]) {
         return @"中国电信";
     }
-
     return nil;
 }
 
@@ -226,14 +216,16 @@
 
 + (void)setModelValue:(id)model fromDictionary:(NSDictionary *)param
 {
-    NSArray *properties = [self getPropertyList:[model class] withSuper:YES];
+    NSArray *properties = [self getPropertyList:[model class] superClass:YES];
     for (NSString *key in properties) {
         id value = [param objectForKey:key];
-        [model setValue:value forKey:key];
+        if (value != nil) {
+            [model setValue:value forKey:key];
+        }
     }
 }
 
-+ (NSArray *)getPropertyList:(Class)obj withSuper:(BOOL)getSuper
++ (NSArray *)getPropertyList:(Class)obj superClass:(BOOL)superCls
 {
     NSMutableArray *propertiesArray = [[NSMutableArray alloc] init];
     id peopleClass = obj;
@@ -249,7 +241,7 @@
         }
         peopleClass = [peopleClass superclass];
         
-    } while (![[obj description] isEqualToString:@"NSObject"] && getSuper);
+    } while (![[obj description] isEqualToString:@"NSObject"] && superCls);
     return propertiesArray;
 }
 

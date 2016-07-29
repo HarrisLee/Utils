@@ -56,7 +56,7 @@
 + (NSString *)serializationObject:(id)object;
 
 /*! 获取Model的属性数组(getSuper   YES:获取父类属性  NO:不获取父类属性)*/
-+ (NSArray *)getPropertyList:(Class)obj withSuper:(BOOL)getSuper;
++ (NSArray *)getPropertyList:(Class)obj superClass:(BOOL)superCls;
 
 /*! 获取NSDictionary的值，将Model对应的key进行赋值，以model的key值为标准*/
 + (void)setModelValue:(id)model fromDictionary:(NSDictionary *)param;

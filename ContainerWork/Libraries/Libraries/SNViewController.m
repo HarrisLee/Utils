@@ -1,32 +1,35 @@
 //
-//  ViewController.m
-//  ContainerWork
+//  SNViewController.m
+//  Libraries
 //
-//  Created by JianRongCao on 1/16/17.
+//  Created by JianRongCao on 1/19/17.
 //  Copyright © 2017 JianRongCao. All rights reserved.
 //
 
-#import "ViewController.h"
-#import <Libraries/Utils.h>
-#import <Libraries/SNViewController.h>
+#import "SNViewController.h"
 
-@interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface SNViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SNViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    [[Utils shareInstance] showMessage:@"li"];
+    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     UICollectionView *viewc = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
-    viewc.backgroundColor = [UIColor whiteColor];
+    viewc.backgroundColor = [UIColor redColor];
     [viewc registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"12sss"];
     viewc.delegate = self;
     viewc.dataSource = self;
     [self.view addSubview:viewc];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -65,13 +68,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%@",indexPath);
-    [self presentViewController:[[SNViewController alloc] init] animated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

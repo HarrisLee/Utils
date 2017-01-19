@@ -10,6 +10,8 @@
 		449AB6E71E2CA10300FA2253 /* Libraries.h in Headers */ = {isa = PBXBuildFile; fileRef = 449AB6E51E2CA10300FA2253 /* Libraries.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		449AB6F81E2CA24500FA2253 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 449AB6F61E2CA24500FA2253 /* Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		449AB6F91E2CA24500FA2253 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 449AB6F71E2CA24500FA2253 /* Utils.m */; };
+		44A1BEB61E305E0000C634CF /* SNViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 44A1BEB41E305E0000C634CF /* SNViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44A1BEB71E305E0000C634CF /* SNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A1BEB51E305E0000C634CF /* SNViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +20,8 @@
 		449AB6E61E2CA10300FA2253 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		449AB6F61E2CA24500FA2253 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		449AB6F71E2CA24500FA2253 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		44A1BEB41E305E0000C634CF /* SNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNViewController.h; sourceTree = "<group>"; };
+		44A1BEB51E305E0000C634CF /* SNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 				449AB6E61E2CA10300FA2253 /* Info.plist */,
 				449AB6F61E2CA24500FA2253 /* Utils.h */,
 				449AB6F71E2CA24500FA2253 /* Utils.m */,
+				44A1BEB41E305E0000C634CF /* SNViewController.h */,
+				44A1BEB51E305E0000C634CF /* SNViewController.m */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -66,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				449AB6E71E2CA10300FA2253 /* Libraries.h in Headers */,
+				44A1BEB61E305E0000C634CF /* SNViewController.h in Headers */,
 				449AB6F81E2CA24500FA2253 /* Utils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				449AB6F91E2CA24500FA2253 /* Utils.m in Sources */,
+				44A1BEB71E305E0000C634CF /* SNViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

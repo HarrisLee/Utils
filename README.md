@@ -17,8 +17,8 @@ LLDB 命令
 11. frame select 1    选择第几个步骤
 12. breakpoint set -n insertStudent  在某方法处设置断点
 13. watchpoint set variable items   监测对象items变化
-14. image lookup --address 0x0000000107b63e90   查看某地址下的信息（一般是奔溃的时候用到）
-15.  image lookup --name viewWillAppear:    查看多少文件有viewWillAppear方法
+14. image lookup --address 0x0000000107b63e90  image命令等同于target modules 查看某地址下的信息（一般是奔溃的时候用到） 
+15.  image lookup --name viewWillAppear:    查看多少文件有viewWillAppear方法
 16. image lookup -t NKMObject   查看某个对象的结构
 17. e @import UIKit   当使用 第一条的命令 查看某个参数的值失败时可以使用此命令，然后再次执行命令即可
 18. apropos expression   可以查看expression的使用命令

@@ -5,7 +5,7 @@ Utils Collection
 调试用到的命令
 LLDB 命令
 1. po    p    call    打印某个东西
-2. expression    执行某个方法。  如   expression self.view.backgroundColor = [UIColor redColor]
+2. expression    执行某个方法。  如 expression self.view.backgroundColor = [UIColor redColor]后 执行expression -- [CATransaction flush]  刷新界面
 3. thread backtrace ，  bt   查看当前堆栈
 4. thread info     查看当前线程
 5. thread list   列出所有的线程
